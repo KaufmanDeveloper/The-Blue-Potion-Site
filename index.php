@@ -1,3 +1,21 @@
+<?php
+
+require('connect.php');
+$name = $_POST['name'];
+$comment = $_POST['comment'];
+$submit = $_POST['submit'];
+
+if($submit){
+  if($name && $comment){
+    $insert = mysqli_query($con, "INSERT INTO comment (name, comment) VALUES
+    ('$name', '$comment')");
+  }
+  else{
+    echo "Please fill out all fields.";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +50,21 @@ Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi 
 
 Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue. Integer eu magna sit amet metus fermentum posuere. Morbi sit amet nulla sed dolor elementum imperdiet. Quisque fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque adipiscing eros ut libero. Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida.
   </div>
+
+<!-- After our body text, let's have a comment box -->
+  <form action = "index.php" method = "POST">
+  <table>
+
+  <tr> <td>Name: </td> <td><input type = "text" name = "name" /> </td> </tr>
+  <tr> <td colspan = "2">Comment: </td> </tr>
+  <tr> <td colspan = "2"><textarea name = "comment"> </textarea> </td> </tr>
+  <tr> <td colspan = "2"><input type = "submit" name = "submit" value = "Comment"
+    /> </td> </tr>
+
+  </table>
+
+
+
   <div id = "Footer">
     <img src = "images/github.png" alt = "Github">
   </div>

@@ -26,6 +26,7 @@ if($submit){
 <body>
   <!-- Our divs can be within the main type, Container -->
   <!-- <div id = "Header"> This is the header. </div> -->
+
 <div id = "Header">
   <img src = "images/logo.png" alt = "Logo">
   <ul>
@@ -63,6 +64,23 @@ Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec da
 
   </table>
 
+  <?php
+  $sqldata = "SELECT id, name, comment FROM comment";
+  $result = $con->query($sqldata);
+
+  if($result->num_rows > 0){
+    //We'll output the data of each row
+    while($row = $result->fetch_assoc()) {
+      echo "Name: " . $row["name"] . "<br>" . "Comment: " . $row["comment"] .
+      "<br>" . "<br>";
+    }
+  }
+  else {
+    echo "0 results";
+  }
+
+  $con->close();
+   ?>
 
 
   <div id = "Footer">

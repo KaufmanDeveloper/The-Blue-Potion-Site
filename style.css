@@ -3,7 +3,7 @@
 body{
   font-size: 24px;
   /*background-color: #DCDCDC;*/
-  background-color: #516D9C;
+  background-color: #6996AD;
 }
 
 #Header {
@@ -18,14 +18,17 @@ body{
   left: 0;
 }
 
-#Header img {
+#Header a img {
   height: 90%;
   padding: 5px;
+  padding-left: 9px;
 }
 
 #Header ul{
   list-style-type: none;
   display: inline-block;
+  float: right;
+  padding-right: 5px;
   /*margin: 0;
   padding: 0;
   overflow: hidden;
@@ -69,7 +72,7 @@ body{
 }
 
 #Mainbody{
-  height: 800px;
+  /*height: 800px;*/
   background-color: white;
   text-align: left;
   margin-top: 100px;
@@ -77,18 +80,36 @@ body{
   border-style: solid;
 }
 
+#Commentbox {
+  background-color: white;
+  text-align: left;
+  padding: 10px;
+  border-style: solid;
+  margin-top: 5px;
+}
+
 #Comment {
+  background-color: white;
+  text-align: left;
+  padding: 10px;
+  border-style: solid;
+  margin-top: 5px;
 }
 
 #Footer{
-  height: 100px;
+  height: 50px;
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: DimGray;
+  margin-left: auto;
+  margin-right: auto;
+  /*background-color: white;
+  border-style: solid;*/
+  text-align: center;
+  position: relative;
 }
 
 #Footer img{
-  display: block;
+  display: inline-block;
   margin: auto;
   /*padding: 5px;*/
   height: 100%;

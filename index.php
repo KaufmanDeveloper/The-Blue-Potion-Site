@@ -9,6 +9,7 @@ if($submit){
   if($name && $comment){
     $insert = mysqli_query($con, "INSERT INTO comment (name, comment) VALUES
     ('$name', '$comment')");
+    header( 'Location: index.php');
   }
   else{
     echo "Please fill out all fields.";
@@ -28,31 +29,39 @@ if($submit){
   <!-- <div id = "Header"> This is the header. </div> -->
 
 <div id = "Header">
+  <a href = "http://thebluepotion.com">
   <img src = "images/logo.png" alt = "Logo">
+</a>
   <ul>
     <!-- <li> <img src = "logo.png" alt = "Logo" class = "logo"> </li> -->
-    <li> <a href = "#home"> Home </a> </li>
-    <li> <a href = "http://www.thebluepotion.com/cms"> Wordpress </a> </li>
-    <li> <a href = "#contact"> Contact </a> </li>
-    <li> <a href = "#about"> About </a> </li>
+    <li> <a href = "http://www.thebluepotion.com/cms"> Wordpress Site </a> </li>
   </ul>
 </div>
 
   <div id = "Container">
 
   <div id = "Mainbody">
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+    <u> Education</u>: Bachelor degree in Computer Science at Maryville
+    College. <br> <br>
+    <u> Coursework</u>: Software Development, Computer Architecture,
+    Database Management Systems, Computational Theory.
 
-Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+    <ul>
+      <li> Experienced in HTML, CSS, and JavaScript web development languages. </li>
+      <li> Proficient in MySQL query scripting. </li>
+      <li> Proficient in PHP and web page/database interactions, an example of
+        which being the comment box on this page. </li>
+      <li> Experienced in developing using the MAMP server interface. </li>
+      <li> Well versed in WordPress design practices. </li>
+      <li> Communication, organizational and project management skills gained
+        from larger Maryville College projects. </li>
+      <li> Experienced in C++, Java, and iOS application framework programming. </li>
+    </ul>
 
-Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
-
-Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique. Nunc iaculis mi in ante. Vivamus imperdiet nibh feugiat est.
-
-Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue. Integer eu magna sit amet metus fermentum posuere. Morbi sit amet nulla sed dolor elementum imperdiet. Quisque fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque adipiscing eros ut libero. Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida.
   </div>
 
 <!-- After our body text, let's have a comment box -->
+  <div id = "Commentbox">
   <form action = "index.php" method = "POST">
   <table>
 
@@ -64,10 +73,13 @@ Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec da
 
   </table>
 
+</div>
+
   <?php
   $sqldata = "SELECT id, name, comment FROM comment";
   $result = $con->query($sqldata);
 
+  echo '<div id = "Comment">';
   if($result->num_rows > 0){
     //We'll output the data of each row
     while($row = $result->fetch_assoc()) {
@@ -79,12 +91,17 @@ Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec da
     echo "0 results";
   }
 
+  echo '</div>';
+
   $con->close();
    ?>
 
 
   <div id = "Footer">
-    <img src = "images/github.png" alt = "Github">
+    <a href = "https://github.com/MakMcFly">
+    <img src = "images/github.png" alt = "Github"> </a>
+    <a href = "https://www.linkedin.com/in/michael-kaufman-0911939a?trk=hp-identity-name">
+    <img src = "images/linkedin.png" alt = "Linkedin"> </a>
   </div>
   </div>
 </body>
